@@ -4,20 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D.A.S.H - Dedicated Autonomous Support Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- Starfield -->
   <div class="starfield"></div>
-  
-  <header id="home">
-    <img src="../img/logo.png" alt="D.A.S.H Logo" class="logo">
+
+  <!-- Header / Hero -->
+  <header>
+    <img src="img/logo.jpg" alt="D.A.S.H Logo" class="logo">
     <h1>D.A.S.H</h1>
     <p>Dedicated Autonomous Support Hub</p>
     <p>AI Training, Automation, and AR Co-Pilot Services</p>
-    <a href="#contact" class="btn-primary">Get Started</a>
+    <a href="#training" class="btn-primary">Get Started</a>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -26,11 +29,13 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- About Section -->
   <section id="about" class="hud-panel">
     <h2>About D.A.S.H</h2>
     <p>D.A.S.H provides AI-driven training, automation solutions, and AR co-pilot services. Our mission is to empower businesses and individuals to leverage AI responsibly and effectively.</p>
   </section>
 
+  <!-- Services Section -->
   <section id="services" class="hud-panel">
     <h2>Our Services</h2>
     <ul>
@@ -41,6 +46,7 @@
     </ul>
   </section>
 
+  <!-- Training Section -->
   <section id="training" class="hud-panel">
     <h2>Training Offerings</h2>
     <p>Hands-on workshops and courses for individuals and corporate teams to master AI co-pilot workflows:</p>
@@ -53,6 +59,7 @@
     <a href="#contact" class="btn-secondary">Book a Session</a>
   </section>
 
+  <!-- Pilot AI Training (restored) -->
   <section id="pilot" class="hud-panel">
     <h2>Pilot AI Training</h2>
     <p>Interactive modules designed to simulate real-world scenarios. Learn to manage AI copilots, deploy modules, and adapt to mission-critical challenges.</p>
@@ -63,20 +70,25 @@
     </ul>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="hud-panel">
     <h2>Contact Us</h2>
     <p>Phone: +27 71 522 9403</p>
-    <p>Email: AIS_D.A.S.H@proton.me</p>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
+    <p>Email: <a href="mailto:AIS_D.A.S.H@proton.me">AIS_D.A.S.H@proton.me</a></p>
+
+    <form class="contact-form" action="mailto:AIS_D.A.S.H@proton.me" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name*" required>
+      <input type="email" name="email" placeholder="Your Email*" required>
+      <textarea name="message" rows="5" placeholder="Your Message*" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 D.A.S.H | All Rights Reserved</p>
+    <p>&copy; 2025 D.A.S.H | All Rights Reserved</p>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
