@@ -7,6 +7,7 @@ body {
   color: #e0f7fa;
   background: black;
   overflow-x: hidden;
+  line-height: 1.6; /* Improved spacing for readability */
 }
 .starfield {
   position: fixed;
@@ -14,72 +15,113 @@ body {
   width: 100%; height: 100%;
   background: url('../img/starfield.gif') repeat;
   z-index: -1;
+  opacity: 0.8; /* Slightly reduced opacity for better text contrast */
 }
 
 /* Header */
 header {
-  background: black;
+  background: rgba(0, 0, 0, 0.85); /* Semi-transparent for HUD feel */
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem; /* Increased padding for better spacing */
   border-bottom: 2px solid cyan;
 }
 header .logo {
-  max-width: 150px;
+  max-width: 180px; /* Slightly larger for impact */
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 5px cyan); /* Glow effect for sci-fi */
 }
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem; /* Larger for emphasis */
   color: cyan;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 10px cyan; /* Enhanced glow */
 }
-header p { color: #87ceeb; }
+header p {
+  color: #87ceeb;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem; /* Better spacing */
+}
 
 /* Navigation */
 nav {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
-  background: rgba(0,0,0,0.85);
+  gap: 2.5rem; /* Increased gap for better spacing */
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.9); /* Darker for military HUD */
   border-bottom: 1px solid cyan;
   position: sticky;
   top: 0;
+  z-index: 10; /* Ensure it stays on top */
 }
 nav a {
   color: cyan;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: color 0.3s;
 }
-nav a:hover { color: white; }
+nav a:hover {
+  color: white;
+  text-shadow: 0 0 5px white; /* Subtle glow on hover */
+}
 
 /* HUD Panels */
 .hud-panel {
-  background: rgba(0, 0, 0, 0.65);
-  border: 1px solid cyan;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem auto;
-  width: 85%;
-  max-width: 900px;
-  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+  background: rgba(0, 0, 0, 0.75); /* Increased opacity for military depth */
+  border: 2px solid cyan; /* Thicker border for HUD frame */
+  border-radius: 8px; /* Slightly tighter radius for tactical look */
+  padding: 2.5rem; /* More padding for internal spacing */
+  margin: 3rem auto; /* Increased vertical margin for section separation */
+  width: 90%; /* Slightly wider for better content flow */
+  max-width: 1000px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.4); /* Stronger glow */
+  position: relative;
+}
+.hud-panel::before { /* Added pseudo-element for scanline effect */
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(transparent 50%, rgba(0,255,255,0.05) 50%);
+  background-size: 100% 4px; /* Subtle scanlines for sci-fi/military HUD */
+  pointer-events: none;
 }
 .hud-panel h2 {
   color: cyan;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid cyan;
-  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed cyan; /* Dashed for tactical vibe */
+  padding-bottom: 0.75rem;
+  font-size: 2rem;
+  text-shadow: 0 0 5px cyan;
+}
+.hud-panel ul {
+  list-style: none; /* Remove bullets for clean HUD */
+  padding-left: 0;
+}
+.hud-panel li {
+  margin-bottom: 1rem; /* Better spacing between items */
+  padding-left: 1.5rem; /* Indent with custom marker */
+  position: relative;
+}
+.hud-panel li::before {
+  content: '>>'; /* Military-style marker */
+  position: absolute;
+  left: 0;
+  color: cyan;
 }
 
 /* Buttons */
 .btn-primary, .btn-secondary {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px; /* Sharper corners for military */
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 700;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 0 10px rgba(0,255,255,0.3); /* Glow effect */
 }
 .btn-primary {
   background: cyan; color: black;
@@ -94,31 +136,39 @@ nav a:hover { color: white; }
 }
 
 /* Contact form */
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; } /* Increased gap */
 .contact-form input, .contact-form textarea {
-  padding: 0.75rem;
+  padding: 1rem;
   border: 1px solid cyan;
-  border-radius: 6px;
-  background: black;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.8);
   color: white;
+  font-family: 'Orbitron', sans-serif;
+  transition: border-color 0.3s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: white;
+  box-shadow: 0 0 10px white;
 }
 .contact-form button {
-  padding: 0.75rem;
+  padding: 1rem;
   background: cyan;
   color: black;
-  font-weight: bold;
+  font-weight: 700;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 .contact-form button:hover { background: #00ffff; }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
-  background: black;
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.9);
   border-top: 1px solid cyan;
-  margin-top: 2rem;
+  margin-top: 3rem;
   color: #87ceeb;
+  font-size: 0.9rem;
 }
