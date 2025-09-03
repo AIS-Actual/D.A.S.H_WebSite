@@ -14,6 +14,7 @@
     <h1>D.A.S.H</h1>
     <p>Dedicated Autonomous Support Hub</p>
     <p>AI Training, Automation, and AR Co-Pilot Services</p>
+    <a href="#training" class="btn-primary">Get Started</a>
   </header>
 
   <!-- Navigation -->
@@ -21,6 +22,7 @@
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#training">Training</a>
+    <a href="#demo">Demo</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -52,6 +54,18 @@
       <li>Customized Team Workshops</li>
     </ul>
     <p>Pricing tailored per session — contact us for details.</p>
+    <a href="#contact" class="btn-secondary">Book a Session</a>
+  </section>
+
+  <!-- Demo / AR Placeholder -->
+  <section id="demo">
+    <h2>Interactive Demo</h2>
+    <p>Try out a sample GPT + AR co-pilot interaction here:</p>
+    <div class="demo-box">
+      <textarea placeholder="Enter a prompt for the AI co-pilot..." rows="4"></textarea>
+      <button onclick="runDemo()">Run Demo</button>
+      <div id="demo-output" class="demo-output">Output will appear here...</div>
+    </div>
   </section>
 
   <!-- Contact Section -->
@@ -74,6 +88,26 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Demo placeholder logic
+    function runDemo() {
+      const input = document.querySelector('#demo textarea').value;
+      const output = document.getElementById('demo-output');
+      if(input.trim() === "") {
+        output.textContent = "Please enter a prompt first.";
+      } else {
+        output.textContent = `Simulated AI Response: "${input.split('').reverse().join('')}"`;
+      }
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
 
