@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <!-- Starfield Background -->
+  <div class="starfield"></div>
+
   <!-- Header / Hero -->
   <header>
     <img src="img/logo.jpg" alt="D.A.S.H Logo" class="logo">
@@ -26,14 +29,13 @@
   </nav>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="hud-panel">
     <h2>About D.A.S.H</h2>
-    <p>D.A.S.H provides AI-driven training, automation solutions, and AR co-pilot services. 
-    Our mission is to empower businesses and individuals to leverage AI responsibly and effectively.</p>
+    <p>D.A.S.H provides AI-driven training, automation solutions, and AR co-pilot services. Our mission is to empower businesses and individuals to leverage AI responsibly and effectively.</p>
   </section>
 
   <!-- Services Section -->
-  <section id="services">
+  <section id="services" class="hud-panel">
     <h2>Our Services</h2>
     <ul>
       <li>AI Co-Pilot Training (GPT + AR integration)</li>
@@ -44,7 +46,7 @@
   </section>
 
   <!-- Training Section -->
-  <section id="training">
+  <section id="training" class="hud-panel">
     <h2>Training Offerings</h2>
     <p>Hands-on workshops and courses for individuals and corporate teams to master AI co-pilot workflows:</p>
     <ul>
@@ -58,7 +60,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="hud-panel">
     <h2>Contact Us</h2>
     <p>Phone: +27 71 522 9403</p>
     <p>Email: <a href="mailto:AIS_D.A.S.H@proton.me">AIS_D.A.S.H@proton.me</a></p>
@@ -82,8 +84,7 @@
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href'))
-          .scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
