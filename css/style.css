@@ -1,230 +1,124 @@
-/* === GLOBAL RESET === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Starfield background */
 body {
-  font-family: 'Roboto Mono', monospace;
-  line-height: 1.5;
-  background: #000;
-  color: #b3e5fc;
+  font-family: 'Orbitron', sans-serif;
+  color: #e0f7fa;
+  background: black;
   overflow-x: hidden;
 }
-
-/* === STARFIELD BACKGROUND === */
-body::before {
-  content: "";
+.starfield {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(ellipse at center, rgba(10, 20, 40, 0.9) 0%, rgba(0, 0, 0, 1) 100%);
-  z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
-  animation: starScroll 100s linear infinite;
-  opacity: 0.15;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('../img/starfield.gif') repeat;
   z-index: -1;
 }
 
-@keyframes starScroll {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-200px, -200px); }
-}
-
-/* === HEADER / HERO === */
+/* Header */
 header {
-  background: #000; /* black background */
-  padding: 60px 20px;
+  background: black;
   text-align: center;
-  color: #e0f7fa;
-  border-bottom: 2px solid #00e5ff;
-  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
-  position: relative;
+  padding: 3rem 1rem;
+  border-bottom: 2px solid cyan;
 }
-
-/* Glow divider under header */
-header::after {
-  content: "";
-  display: block;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #00e5ff, transparent);
-  margin-top: 20px;
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
-}
-
 header .logo {
-  width: 100px;
-  max-width: 120px;
+  max-width: 150px;
   height: auto;
-  margin: 0 auto 15px;
-  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
 }
-
-header .logo:hover {
-  transform: scale(1.1);
-}
-
 header h1 {
   font-size: 2.5rem;
-  color: #29b6f6;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.7);
+  color: cyan;
+  margin-bottom: 0.5rem;
 }
+header p { color: #87ceeb; }
 
-header p {
-  font-size: 1.1rem;
-  color: #b3e5fc;
-  margin-top: 10px;
-}
-
-/* === NAVIGATION === */
+/* Navigation */
 nav {
-  background: rgba(17, 17, 17, 0.95);
-  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.85);
+  border-bottom: 1px solid cyan;
   position: sticky;
   top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #00e5ff;
 }
-
 nav a {
-  color: #b3e5fc;
-  margin: 0 15px;
+  color: cyan;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: bold;
+}
+nav a:hover { color: white; }
+
+/* HUD Panels */
+.hud-panel {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid cyan;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 85%;
+  max-width: 900px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+}
+.hud-panel h2 {
+  color: cyan;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid cyan;
+  padding-bottom: 0.5rem;
 }
 
-nav a:hover {
-  color: #00e5ff;
-  text-shadow: 0 0 6px rgba(0, 229, 255, 0.5);
-}
-
-/* === PANELS / SECTIONS === */
-section {
-  max-width: 1200px;
-  margin: 40px auto;
-  background: rgba(20, 30, 50, 0.85);
-  padding: 30px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 229, 255, 0.25);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
-  backdrop-filter: blur(5px);
-  animation: panelFade 0.8s ease forwards;
-}
-
-@keyframes panelFade {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-h2 {
-  color: #00e5ff;
-  margin-bottom: 15px;
-  font-size: 1.8rem;
-  text-shadow: 0 0 6px rgba(0, 229, 255, 0.5);
-}
-
-p, li {
-  color: #b3e5fc;
-  font-size: 1rem;
-}
-
-/* === BUTTONS === */
-.btn-primary,
-.btn-secondary {
-  padding: 10px 20px;
-  border-radius: 5px;
+/* Buttons */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
-
 .btn-primary {
-  background: #00e5ff;
-  color: #000;
-  box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+  background: cyan; color: black;
 }
-
-.btn-primary:hover {
-  background: #00b8d4;
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
-}
-
+.btn-primary:hover { background: #00ffff; }
 .btn-secondary {
-  background: transparent;
-  color: #00e5ff;
-  border: 1px solid #00e5ff;
+  border: 2px solid cyan;
+  color: cyan; background: transparent;
 }
-
 .btn-secondary:hover {
-  background: rgba(0, 229, 255, 0.1);
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+  background: cyan; color: black;
 }
 
-/* === CONTACT FORM === */
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #00e5ff;
-  border-radius: 4px;
-  background: rgba(17, 17, 17, 0.9);
-  color: #b3e5fc;
+/* Contact form */
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.contact-form input, .contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid cyan;
+  border-radius: 6px;
+  background: black;
+  color: white;
 }
-
 .contact-form button {
-  padding: 12px 25px;
-  background: #00e5ff;
-  color: #000;
+  padding: 0.75rem;
+  background: cyan;
+  color: black;
+  font-weight: bold;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
+.contact-form button:hover { background: #00ffff; }
 
-.contact-form button:hover {
-  background: #00b8d4;
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
-}
-
-/* === FOOTER === */
+/* Footer */
 footer {
   text-align: center;
-  padding: 15px;
-  background: rgba(17, 17, 17, 0.95);
-  color: #80deea;
-  border-top: 1px solid #00e5ff;
-  box-shadow: 0 -2px 15px rgba(0, 229, 255, 0.2);
-  font-size: 0.9rem;
-}
-
-/* === RESPONSIVE DESIGN === */
-@media (max-width: 768px) {
-  header { padding: 40px 15px; }
-  header h1 { font-size: 1.8rem; }
-  header p { font-size: 0.9rem; }
-  nav a { display: inline-block; margin: 8px 10px; font-size: 0.9rem; }
-  section { margin: 20px; padding: 20px; }
-  h2 { font-size: 1.5rem; }
-  .btn-primary, .btn-secondary { padding: 8px 15px; font-size: 0.9rem; }
-}
-
-@media (max-width: 480px) {
-  header h1 { font-size: 1.5rem; }
-  header .logo { width: 80px; }
-  section { margin: 10px; padding: 15px; }
+  padding: 1rem;
+  background: black;
+  border-top: 1px solid cyan;
+  margin-top: 2rem;
+  color: #87ceeb;
 }
