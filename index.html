@@ -3,87 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D.A.S.H - Dedicated Autonomous Support Hub</title>
+  <title>D.A.S.H Website</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Header / Hero -->
+  <!-- === HEADER === -->
   <header>
-    <img src="img/logo.jpg" alt="D.A.S.H Logo" class="logo">
-    <h1>D.A.S.H</h1>
-    <p>Dedicated Autonomous Support Hub</p>
-    <p>AI Training, Automation, and AR Co-Pilot Services</p>
-    <a href="#training" class="btn-primary">Get Started</a>
+    <h1>🚀 D.A.S.H Command Interface</h1>
   </header>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#training">Training</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- === MAIN PANELS === -->
+  <main>
+    <!-- About / Intro -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Welcome to the D.A.S.H system. This interface demonstrates a modular AI-powered platform
+        built for resilience, intelligence, and rapid deployment.
+      </p>
+      <button class="btn-primary">Learn More</button>
+    </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About D.A.S.H</h2>
-    <p>D.A.S.H provides AI-driven training, automation solutions, and AR co-pilot services. Our mission is to empower businesses and individuals to leverage AI responsibly and effectively.</p>
-  </section>
+    <!-- Chatbox -->
+    <section id="chatbox">
+      <h2>AI Comms Channel</h2>
+      <div id="chatlog">
+        <div class="msg bot">System online. Ready for input.</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your command here...">
+        <button id="send-btn">Send</button>
+      </div>
+    </section>
 
-  <!-- Services Section -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>AI Co-Pilot Training (GPT + AR integration)</li>
-      <li>Automation Script Development</li>
-      <li>Custom AI Solutions for Businesses</li>
-      <li>Consultation on AI & AR Deployment</li>
-    </ul>
-  </section>
+    <!-- Demo Section -->
+    <section id="demo">
+      <h2>Simulation Demo</h2>
+      <textarea placeholder="Enter a prompt for the demo..."></textarea>
+      <button class="btn-primary" onclick="runDemo()">Run Demo</button>
+      <div id="demo-output">Awaiting input...</div>
+    </section>
+  </main>
 
-  <!-- Training Section -->
-  <section id="training">
-    <h2>Training Offerings</h2>
-    <p>Hands-on workshops and courses for individuals and corporate teams to master AI co-pilot workflows:</p>
-    <ul>
-      <li>Intro to GPT Prompt Engineering</li>
-      <li>AR Integration for Practical Tasks</li>
-      <li>Responsible & Ethical AI Use</li>
-      <li>Customized Team Workshops</li>
-    </ul>
-    <p>Pricing tailored per session — contact us for details.</p>
-    <a href="#contact" class="btn-secondary">Book a Session</a>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Phone: +27 71 522 9403</p>
-    <p>Email: <a href="mailto:AIS_D.A.S.H@proton.me">AIS_D.A.S.H@proton.me</a></p>
-
-    <form class="contact-form" action="mailto:AIS_D.A.S.H@proton.me" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name*" required>
-      <input type="email" name="email" placeholder="Your Email*" required>
-      <textarea name="message" rows="5" placeholder="Your Message*" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
+  <!-- === FOOTER === -->
   <footer>
-    <p>&copy; 2025 D.A.S.H | All Rights Reserved</p>
+    <p>⚡ D.A.S.H Ops Framework v0.1 | WE HOLD THE LINE ⚡</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="js/main.js"></script>
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
 </body>
 </html>
