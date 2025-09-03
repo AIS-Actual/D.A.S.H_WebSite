@@ -22,7 +22,6 @@
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#training">Training</a>
-    <a href="#demo">Demo</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -57,18 +56,6 @@
     <a href="#contact" class="btn-secondary">Book a Session</a>
   </section>
 
-  <!-- Demo / AI Chat -->
-  <section id="demo">
-    <h2>Interactive AI Demo</h2>
-    <div id="chatbox">
-      <div id="chatlog"></div>
-      <div class="chat-input">
-        <input type="text" id="userInput" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Us</h2>
@@ -90,48 +77,6 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Send message to backend (FastAPI + Ollama)
-    async function sendMessage() {
-      const inputField = document.getElementById('userInput');
-      const chatlog = document.getElementById('chatlog');
-      const userMessage = inputField.value.trim();
-
-      if (!userMessage) return;
-
-      // Add user message to chat
-      const userDiv = document.createElement('div');
-      userDiv.className = 'chat-message user';
-      userDiv.textContent = "You: " + userMessage;
-      chatlog.appendChild(userDiv);
-
-      // Clear input
-      inputField.value = "";
-
-      // Call backend
-      try {
-        const response = await fetch("http://localhost:8000/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: userMessage })
-        });
-
-        const data = await response.json();
-
-        // Add AI response
-        const botDiv = document.createElement('div');
-        botDiv.className = 'chat-message bot';
-        botDiv.textContent = "AI: " + (data.reply || "No response from AI.");
-        chatlog.appendChild(botDiv);
-
-        chatlog.scrollTop = chatlog.scrollHeight;
-      } catch (err) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'chat-message error';
-        errorDiv.textContent = "Error: Could not connect to backend.";
-        chatlog.appendChild(errorDiv);
-      }
-    }
-
     // Smooth scroll
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -142,4 +87,3 @@
   </script>
 </body>
 </html>
-
