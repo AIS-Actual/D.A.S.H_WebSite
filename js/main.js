@@ -10,17 +10,16 @@ async function runDemo() {
   output.textContent = "Processing…";
 
   try {
-    const response = await fetch('http://localhost:8000/api/demo', {  // adjust URL when deployed
+    const response = await fetch('http://localhost:8000/chat', {  // <-- match backend endpoint
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt: input })
+      body: JSON.stringify({ message: input })  // <-- key must be "message"
     });
 
     const data = await response.json();
-    output.textContent = data.reply;
+    output.textContent = data.response || "No response from AI.";  // <-- use "response"
   } catch (err) {
     output.textContent = "Error connecting to demo backend.";
     console.error(err);
   }
 }
-
