@@ -16,17 +16,17 @@ async function sendMessage() {
   input.value = "";
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/demo", {
+    const response = await fetch("http://127.0.0.1:8000/chat", { // <-- match backend endpoint
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: message })
+      body: JSON.stringify({ message }) // <-- key must be "message"
     });
 
     const data = await response.json();
 
     const botMsg = document.createElement("div");
     botMsg.classList.add("msg", "bot");
-    botMsg.innerHTML = `<b>D.A.S.H:</b> ${data.reply || "No response from AI."}`;
+    botMsg.innerHTML = `<b>D.A.S.H:</b> ${data.response || "No response from AI."}`; // <-- use "response"
     chatlog.appendChild(botMsg);
   } catch (err) {
     const errorMsg = document.createElement("div");
@@ -46,5 +46,3 @@ document.getElementById("userInput").addEventListener("keypress", function(e) {
     e.preventDefault();
   }
 });
-
-
